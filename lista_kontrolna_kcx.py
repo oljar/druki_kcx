@@ -21,33 +21,47 @@ P=Paragraph('This is a very silly example',style)
 
 elements = []
 
-data= [['Nagłówek 1','','',''],
-       ['10', '11', '12', '13', '14','15'],
-       ['20', '21', '22', '23', '24','16'],
-       ['30', '31', '32', '33', '34','24'],
-       ['30', '31', '32', '33', '34','24'],]
+data= [['Logo','','Montaż aparatów KCX            ZP3 SKOWARCZ' ],
+       ['','','Lista kontrolna czynnoŚci sprawdzających KCX'],
+       ['Lp', 'Operacja', 'Lp', 'Wytyczne', 'Ocena'],
+       ['1', '10', '1.1', '12','13'],
+       ['' , '', '1.2', '22', '23'],
+       ['', '' , '1.3', '32', '33'],
+       ['', '', '1.4', '43', '44'],
+       ['', '', '1.5', '53', '54'],
+
+       ]
 
 
 
-t=Table(data,5*[1*inch], 5*[0.4*inch])
+t=Table(data,4*[1.3*inch], 8*[0.3*inch])
 t.setStyle(TableStyle([('ALIGN',(0,0),(-2,-2),'CENTER'),
-                       ('TEXTCOLOR',(1,1),(-2,-2),colors.red),
-                       ('VALIGN',(0,0),(0,-1),'TOP'),
-                       ('TEXTCOLOR',(0,0),(0,-1),colors.blue),
-                       ('ALIGN',(0,-1),(-1,-1),'CENTER'),
+
+                       #('VALIGN',(0,0),(0,-1),'TOP'),
+                       #('TEXTCOLOR',(0,0),(0,-1),colors.blue),
+                       ('ALIGN',(0,0),(-1,-1),'CENTER'),
                        ('VALIGN',(0,0),(-1,-1),'MIDDLE'),
-                       ('TEXTCOLOR',(0,-1),(-1,-1),colors.green),
+                       #('TEXTCOLOR',(0,-1),(-1,-1),colors.green),
                        ('INNERGRID', (0,0), (-1,-1), 0.25, colors.black),
                        ('BOX', (0,0), (-1,-1), 0.25, colors.black),
-                       ('SPAN',(0,0),(0,2)),
-                       ('SPAN',(1,0),(5,0)),
+                       ('SPAN',(3,0),(4,0)),
+                       ('SPAN',(2,1),(4,1)),
+                       ('SPAN',(2,0),(4,0)),
+                       ('SPAN',(0,0),(1,1)),
+                       ('SPAN',(0,3),(0,7)),
+                       ('SPAN',(1,3),(1,7)),
                        ('FONT',(0,0),(-1,-1),'DejaMono'),
+                       ('FONTSIZE',(2,1),(2,4),12),
+                       ('FONTSIZE',(2,0),(2,4),10),
+
                        ]))
 
-t._argW[0]=2.5*inch
-t._argW[1] = 0.5*inch
-t._argW[2] = 1*inch
-t._argH[0]=1*inch
+t._argW[0]=0.5*inch
+t._argW[1] = 1.5*inch
+t._argW[2] = 0.5*inch
+t._argW[3] = 3*inch
+t._argW[4] = 1.5*inch
+t._argH[1]=0.5*inch
 elements.append(t)
 # write the document to disk
 doc.build(elements)
